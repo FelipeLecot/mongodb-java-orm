@@ -1,0 +1,24 @@
+package org.mongodb.orm.executor.strategy;
+
+import org.mongodb.orm.MqlMapConfiguration;
+import org.mongodb.orm.engine.entry.Entry;
+import org.mongodb.orm.engine.type.ColumnHandler;
+
+/**
+ * Column strategy  
+ * @author yy
+ */
+public class ColumnStrategy implements Strategy {
+
+  @Override
+  public void doStrategy(String namespace, MqlMapConfiguration configuration, StrategyContext context, StrategyChain chain) {
+    Entry entry = context.getEntry();
+    ColumnHandler<?> columnHandler = entry.getColumnHandler();
+    if(columnHandler != null && context.getValue() != null) {
+      Object value = columnHandler.resovleColumn(context.getValue());
+      context.setValue(value);
+    }
+    chain.doStrategy(namespace, configuration, context);
+  }
+  
+}

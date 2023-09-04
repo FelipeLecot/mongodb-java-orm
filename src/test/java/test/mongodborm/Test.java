@@ -7,9 +7,9 @@ import java.util.List;
 
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.core.io.Resource;
-import org.yy.mongodb.client.MongoClientTemplet;
-import org.yy.mongodb.client.MongoDataSource;
-import org.yy.mongodb.client.MongoFactoryBean;
+import org.mongodb.client.MongoClientTemplet;
+import org.mongodb.client.MongoDataSource;
+import org.mongodb.client.MongoFactoryBean;
 
 public class Test {
   
